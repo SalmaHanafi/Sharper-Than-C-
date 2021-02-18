@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Salma Hanafi\\source\\repos\\TodoAPI\\TodoAPI.csproj": {}
+    "C:\\Users\\Salma Hanafi\\source\\repos\\Sharper-Than-C-Sharp\\TodoAPI\\TodoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Salma Hanafi\\source\\repos\\TodoAPI\\TodoAPI.csproj": {
+    "C:\\Users\\Salma Hanafi\\source\\repos\\Sharper-Than-C-Sharp\\TodoAPI\\TodoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Salma Hanafi\\source\\repos\\TodoAPI\\TodoAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Salma Hanafi\\source\\repos\\Sharper-Than-C-Sharp\\TodoAPI\\TodoAPI.csproj",
         "projectName": "TodoAPI",
-        "projectPath": "C:\\Users\\Salma Hanafi\\source\\repos\\TodoAPI\\TodoAPI.csproj",
+        "projectPath": "C:\\Users\\Salma Hanafi\\source\\repos\\Sharper-Than-C-Sharp\\TodoAPI\\TodoAPI.csproj",
         "packagesPath": "C:\\Users\\Salma Hanafi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Salma Hanafi\\source\\repos\\TodoAPI\\obj\\",
+        "outputPath": "C:\\Users\\Salma Hanafi\\source\\repos\\Sharper-Than-C-Sharp\\TodoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Salma Hanafi\\AppData\\Roaming\\NuGet\\NuGet.Config",
