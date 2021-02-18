@@ -1,0 +1,13 @@
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.exe
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.deps.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.runtimeconfig.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.runtimeconfig.dev.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.dll
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\bin\Debug\netcoreapp3.1\AccessMods.pdb
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.csprojAssemblyReference.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.AssemblyInfoInputs.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.AssemblyInfo.cs
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.csproj.CoreCompileInputs.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.dll
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.pdb
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\AccessMods\obj\Debug\netcoreapp3.1\AccessMods.genruntimeconfig.cache
