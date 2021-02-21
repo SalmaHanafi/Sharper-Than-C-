@@ -1,0 +1,13 @@
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.exe
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.deps.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.runtimeconfig.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.runtimeconfig.dev.json
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.dll
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\bin\Debug\netcoreapp3.1\Enumerating.pdb
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.csprojAssemblyReference.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.AssemblyInfoInputs.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.AssemblyInfo.cs
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.csproj.CoreCompileInputs.cache
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.dll
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.pdb
+C:\Users\Salma Hanafi\source\repos\Sharper-Than-C-Sharp\Enumerating\obj\Debug\netcoreapp3.1\Enumerating.genruntimeconfig.cache
