@@ -20,7 +20,6 @@ namespace Enumerating
             }
 
 
-
             var infEnumerable = new MyInfiniteEnumerable();
             foreach(var i in infEnumerable)
             {
