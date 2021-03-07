@@ -1,0 +1,8 @@
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\bin\Debug\netstandard2.0\StockAnalyzer.Core.deps.json
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\bin\Debug\netstandard2.0\StockAnalyzer.Core.dll
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\bin\Debug\netstandard2.0\StockAnalyzer.Core.pdb
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\obj\Debug\netstandard2.0\StockAnalyzer.Core.AssemblyInfoInputs.cache
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\obj\Debug\netstandard2.0\StockAnalyzer.Core.AssemblyInfo.cs
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\obj\Debug\netstandard2.0\StockAnalyzer.Core.csproj.CoreCompileInputs.cache
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\obj\Debug\netstandard2.0\StockAnalyzer.Core.dll
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\Async\src\Windows\03\Start_Here\StockAnalyzer.Core\obj\Debug\netstandard2.0\StockAnalyzer.Core.pdb
