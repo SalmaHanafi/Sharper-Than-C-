@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\images",
-    "\\src",
-    "\\src\\Windows",
-    "\\src\\Windows\\03",
-    "\\src\\Windows\\03\\Start_Here",
-    "\\src\\Windows\\03\\Start_Here\\StockAnalyzer.Windows"
+    ""
   ],
-  "SelectedNode": "\\src\\Windows\\03\\Start_Here\\StockAnalyzer.Windows\\App.xaml.cs",
+  "SelectedNode": "\\StockAnalyzer.sln (src\\Windows\\02\\Start_Here\\StockAnalyzer.sln)",
   "PreviewInSolutionExplorer": false
 }
