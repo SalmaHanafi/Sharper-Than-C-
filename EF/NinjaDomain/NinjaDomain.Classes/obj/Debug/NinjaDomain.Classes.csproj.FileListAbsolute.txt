@@ -4,3 +4,9 @@ C:\Users\Salma Hanafi\source\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.c
 C:\Users\Salma Hanafi\source\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.csproj.CoreCompileInputs.cache
 C:\Users\Salma Hanafi\source\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.dll
 C:\Users\Salma Hanafi\source\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.pdb
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\bin\Debug\NinjaDomain.Classes.dll
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\bin\Debug\NinjaDomain.Classes.pdb
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.csprojAssemblyReference.cache
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.csproj.CoreCompileInputs.cache
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.dll
+C:\Users\Salma Hanafi\source\repos\Learning\Sharper-Than-C-Sharp\EF\NinjaDomain\NinjaDomain.Classes\obj\Debug\NinjaDomain.Classes.pdb
