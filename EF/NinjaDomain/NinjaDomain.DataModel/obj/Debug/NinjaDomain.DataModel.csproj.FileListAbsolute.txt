@@ -1,0 +1,15 @@
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\NinjaDomain.DataModel.dll.config
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\NinjaDomain.DataModel.dll
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\NinjaDomain.DataModel.pdb
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\EntityFramework.dll
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\NinjaDomain.Classes.dll
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\NinjaDomain.Classes.pdb
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\EntityFramework.xml
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\obj\Debug\NinjaDomain.DataModel.csprojAssemblyReference.cache
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\obj\Debug\NinjaDomain.DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\obj\Debug\NinjaDomain.DataModel.csproj.CopyComplete
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\obj\Debug\NinjaDomain.DataModel.dll
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\obj\Debug\NinjaDomain.DataModel.pdb
+C:\Users\Salma Hanafi\source\NinjaDomain.DataModel\bin\Debug\System.ComponentModel.Annotations.dll
