@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,8 +27,23 @@ namespace StockAnalyzer.Windows
 
         CancellationTokenSource cancellationTokenSource = null;
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private async void Search_Click(object sender, RoutedEventArgs e)
         {
+            #region Code to make sure Web API is running
+            // This code is just here to make sure that you have started the web api as well!
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var response = await client.GetAsync("http://localhost:61363");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ensure that StockAnalyzer.Web is running, expecting to be running on http://localhost:61363. You can configure the solution to start two projects by right clicking the StockAnalyzer solution in Visual Studio, select properties and then Mutliuple Startup Projects.", "StockAnalyzer.Web IS NOT RUNNING");
+                }
+            }
+            #endregion
+
             #region Before loading stock data
             var watch = new Stopwatch();
             watch.Start();
@@ -37,36 +53,77 @@ namespace StockAnalyzer.Windows
             Search.Content = "Cancel";
             #endregion
 
-            var lines = File.ReadAllLines(@"StockPrices_Small.csv");
-
-            var data = new List<StockPrice>();
-
-            foreach (var line in lines.Skip(1))
+            #region Cancellation
+            if (cancellationTokenSource != null)
             {
-                var segments = line.Split(',');
-
-                for (var i = 0; i < segments.Length; i++) segments[i] = segments[i].Trim('\'', '"');
-                var price = new StockPrice
-                {
-                    Ticker = segments[0],
-                    TradeDate = DateTime.ParseExact(segments[1], "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
-                    Volume = Convert.ToInt32(segments[6], CultureInfo.InvariantCulture),
-                    Change = Convert.ToDecimal(segments[7], CultureInfo.InvariantCulture),
-                    ChangePercent = Convert.ToDecimal(segments[8], CultureInfo.InvariantCulture),
-                };
-                data.Add(price);
+                cancellationTokenSource.Cancel();
+                cancellationTokenSource = null;
+                return;
             }
 
-            Stocks.ItemsSource = data.Where(price => price.Ticker == Ticker.Text);
+            cancellationTokenSource = new CancellationTokenSource();
+            cancellationTokenSource.Token.Register(() =>
+            {
+                Notes.Text += "Cancellation requested" + Environment.NewLine;
+            });
+            #endregion
+
+            try
+            {
+                var tickers = Ticker.Text.Split(',', ' ');
+
+                var service = new StockService();
+                var stocks = new ConcurrentBag<StockPrice>();
+
+                var tickerLoadingTasks = new List<Task<IEnumerable<StockPrice>>>();
+                foreach (var ticker in tickers)
+                {
+                    var loadTask = service.GetStockPricesFor(ticker, cancellationTokenSource.Token).ContinueWith(t =>
+                   {
+                       foreach (var stock in t.Result.Take(5)) stocks.Add(stock);
+
+                       Dispatcher.Invoke(() =>
+                       {
+                           Stocks.ItemsSource = stocks.ToArray();
+                       });
+                       return t.Result;
+                   });
+
+                    tickerLoadingTasks.Add(loadTask);
+                }
+                var timeoutTask = Task.Delay(30000);
+
+                var allStocksLoadingTask = Task.WhenAll(tickerLoadingTasks);
+
+                var completedTask = await Task.WhenAny(timeoutTask, allStocksLoadingTask);
+
+                if (completedTask == timeoutTask)
+                {
+                    cancellationTokenSource.Cancel();
+                    cancellationTokenSource = null;
+                    throw new Exception("Timeout!");
+                }
+
+                await allStocksLoadingTask;
+                //Stocks.ItemsSource = allStocksLoadingTask.Result.SelectMany(stocks => stocks);
+            }
+            catch (Exception ex)
+            {
+                Notes.Text += ex.Message + Environment.NewLine;
+            }
+            finally
+            {
+                cancellationTokenSource = null;
+            }
 
             #region After stock data is loaded
             StocksStatus.Text = $"Loaded stocks for {Ticker.Text} in {watch.ElapsedMilliseconds}ms";
             StockProgress.Visibility = Visibility.Hidden;
             Search.Content = "Search";
             #endregion
-
-            cancellationTokenSource = null;
         }
+
+    
 
         private Task<List<string>> SearchForStocks(CancellationToken cancellationToken)
         {
