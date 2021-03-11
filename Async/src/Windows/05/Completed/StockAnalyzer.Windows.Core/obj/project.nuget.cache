@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WjiTNXMcogixSJwK09ApdubM431YZOUpwZKhrTdqRUL7iS1oJj2FGPIDOJH+GGyaCBtqpQ8q/+9lX3Vwm6GhBg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Salma Hanafi\\source\\repos\\Learning\\Sharper-Than-C-Sharp\\Async\\src\\Windows\\05\\Completed\\StockAnalyzer.Windows.Core\\StockAnalyzer.Windows.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Salma Hanafi\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
