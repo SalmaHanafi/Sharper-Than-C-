@@ -22,7 +22,16 @@ namespace Features
             {
                 new Employee { Id = 3, Name = "Alex" }
             };
-            foreach (var employee in developers.Where(n => n.Name.Length == 5 ).OrderBy(n => n.Name))
+            var query = developers.Where(n => n.Name.Length == 5)
+                                  .OrderBy(n => n.Name);
+            var query2 = from developer in developers
+                         where developer.Name.Length == 5
+                         orderby developer.Name
+                         select developer;
+
+
+            Console.WriteLine("Queries:");
+            foreach (var employee in query2 )
                 
             {
                 Console.WriteLine(employee.Name);
@@ -34,7 +43,7 @@ namespace Features
             // //IEnumberable is the perfect interface for hiding
             // //the source of data
 
-            // IEnumerable<Employee> developers = new Employee[]
+            //IEnumerable<Employee> developers = new Employee[]
             //{
             //      new Employee { Id = 1, Name= "Scott" },
             //      new Employee { Id = 2, Name= "Chris" }
