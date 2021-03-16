@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Queries
 {
-    class Movie
+    public class Movie
     {
         public string Title { get; set; }
         public float Rating { get; set; }
 
         int _year;
         public int Year
-        {
-            get
+        {   get
             {
-                Console.WriteLine($"Returning {_year} for {Title}");
+                Console.WriteLine($"Returning {_year} for {Title}");                
                 return _year;
             }
             set
@@ -24,6 +19,5 @@ namespace Queries
                 _year = value;
             }
         }
-
     }
 }
