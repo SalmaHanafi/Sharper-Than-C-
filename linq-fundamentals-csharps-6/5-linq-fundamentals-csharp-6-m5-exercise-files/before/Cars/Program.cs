@@ -58,18 +58,70 @@ namespace Cars
             //    orderby manufacturer.Key
             //    select manufacturer;
 
-            var query =
-                cars.GroupBy(c => c.Manufacturer.ToUpper())
-                            .OrderBy(g => g.Key);
-            foreach (var group in query)
-            {
-                Console.WriteLine($"***{group.Key}***");
-                foreach (var car in group.OrderBy(c => c.Combined).Take(2))
-                {
-                    Console.WriteLine($"\t{car.Name} : {car.Combined}");
-                }
-            }
+            //var query =
+            //    cars.GroupBy(c => c.Manufacturer.ToUpper())
+            //                .OrderBy(g => g.Key);
+            //foreach (var group in query)
+            //{
+            //    Console.WriteLine($"***{group.Key}***");
+            //    foreach (var car in group.OrderBy(c => c.Combined).Take(2))
+            //    {
+            //        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //    }
+            //}
             #endregion
+
+            #region groupjoin
+
+            //var query =
+            //    from manufacturer in manufacturers
+            //    join car in cars on manufacturer.Name equals car.Manufacturer
+            //        into carGroup
+            //    orderby manufacturer.Name
+            //    select new
+            //    {
+            //        Manufacturer = manufacturer,
+            //        Cars = carGroup
+            //    };
+
+            //var query = manufacturers.GroupJoin(cars, m => m.Name, c => c.Manufacturer, (m, g) =>
+            //        new
+            //        {
+            //            Manufacturer = m,
+            //            Cars = g
+            //        })
+            //    .OrderBy(m => m.Manufacturer.Name);
+
+            //    foreach (var group in query)
+            //    {
+            //        Console.WriteLine($"{group.Manufacturer.Name} : {group.Manufacturer.Headquarters}");
+            //        foreach (var car in group.Cars.OrderByDescending(c => c.Combined).Take(2))
+            //        {
+            //            Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //        }
+            //    }
+
+            #endregion
+
+            var query = cars.Join(manufacturers,
+                                  c => c.Manufacturer,
+                                  m => m.Name,
+                                  (c, m) => new
+                                  {
+                                      m.Headquarters,
+                                      c.Name,
+                                      c.Combined
+                                  }).
+                GroupBy(m => m.Headquarters);
+
+            foreach (var group in query)
+                {
+                    Console.WriteLine($"{group.Key}");
+                    foreach (var car in group.OrderByDescending(c => c.Combined).Take(2))
+                    {
+                        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+                    }
+                }
 
         }
 
