@@ -14,10 +14,14 @@ namespace Cars
             var cars = ProcessCars("fuel.csv");
             var manufacturers = ProcessManufacturers("manufacturers.csv");
 
+            #region joins
+            //using anonymous function to join on more than 1 prop
+
             //var query =
             //    from car in cars
             //    join manufacturer in manufacturers
-            //    on car.Manufacturer equals manufacturer.Name
+            //    on new { car.Manufacturer, car.Year }
+            //    equals new { Manufacturer = manufacturer.Name , manufacturer.Year}
             //    orderby car.Combined descending, car.Name ascending
             //    select new
             //    {
@@ -26,23 +30,47 @@ namespace Cars
             //        car.Combined
             //    };
 
-            var query = cars.Join(manufacturers,
-                                  c => c.Manufacturer,
-                                  m => m.Name,
-                                  (c, m) => new
-                                  {
-                                      m.Headquarters,
-                                      c.Name,
-                                      c.Combined
-                                  })
-                            .OrderByDescending(c => c.Combined)
-                            .ThenBy(c => c.Name);
+
+            //var query = cars.Join(manufacturers,
+            //                      c => new { c.Manufacturer, c.Year },
+            //                      m => new { Manufacturer = m.Name, m.Year },
+            //                      (c, m) => new
+            //                      {
+            //                          m.Headquarters,
+            //                          c.Name,
+            //                          c.Combined
+            //                      })
+            //                .OrderByDescending(c => c.Combined)
+            //                .ThenBy(c => c.Name);
 
 
-            foreach (var c in query.Take(10))
+            //foreach (var c in query.Take(10))
+            //{
+            //    Console.WriteLine($"{c.Headquarters} {c.Name} : {c.Combined}");
+            //    }
+
+            #endregion
+
+            #region grouping
+            //var query =
+            //    from car in cars
+            //    group car by car.Manufacturer.ToUpper() into manufacturer
+            //    orderby manufacturer.Key
+            //    select manufacturer;
+
+            var query =
+                cars.GroupBy(c => c.Manufacturer.ToUpper())
+                            .OrderBy(g => g.Key);
+            foreach (var group in query)
             {
-                Console.WriteLine($"{c.Headquarters} {c.Name} : {c.Combined}");
+                Console.WriteLine($"***{group.Key}***");
+                foreach (var car in group.OrderBy(c => c.Combined).Take(2))
+                {
+                    Console.WriteLine($"\t{car.Name} : {car.Combined}");
+                }
             }
+            #endregion
+
         }
 
         private static List<Car> ProcessCars(string path)
