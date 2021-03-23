@@ -16,11 +16,12 @@ namespace Cars
 
             var query =
                 from car in cars
-                where car.Manufacturer == "BMW" && car.Year == 2016
+                join manufacturer in manufacturers
+                on car.Manufacturer equals manufacturer.Name
                 orderby car.Combined descending, car.Name ascending
                 select new
                 {
-                    car.Manufacturer,
+                    manufacturer.Headquarters,
                     car.Name,
                     car.Combined
                 };
@@ -29,9 +30,9 @@ namespace Cars
 
 
 
-                foreach (var car in query.Take(10))
+                foreach (var c in query.Take(10))
                 {
-                    Console.WriteLine($"{car.Manufacturer} {car.Name} : {car.Combined}");
+                    Console.WriteLine($"{c.Headquarters} {c.Name} : {c.Combined}");
                 }
         }
 
