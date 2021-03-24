@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,47 +12,45 @@ namespace Cars
     {
         static void Main(string[] args)
         {
-            var cars = ProcessCars("fuel.csv");
-            var manufacturers = ProcessManufacturers("manufacturers.csv");
+            CreateXml();
 
-            var query =
-                from car in cars
-                group car by car.Manufacturer into carGroup
-                select new
-                {
-                    Name = carGroup.Key,
-                    Max = carGroup.Max(c => c.Combined),
-                    Min = carGroup.Min(c => c.Combined),
-                    Avg = carGroup.Average(c => c.Combined)
-                } into result
-                orderby result.Max descending
-                select result;
+        }
+
+        private static void CreateXml()
+        {
+            var records = ProcessCars("fuel.csv");
+            var document = new XDocument();
+            var cars = new XElement("Cars");
+
+            #region functional construction
+            var elements =
+                from record in records
+                select new XElement("Car",
+                                    new XAttribute("Name", record.Name),
+                                    new XAttribute("Combined", record.Combined),
+                                    new XAttribute("Manufacturer", record.Manufacturer));
+            cars.Add(elements);
+            #endregion
+            #region using foreach
+            //foreach (var record in records)
+            //{
+            //    //var name = new XAttribute("Name", record.Name);
+            //    //var combined = new XAttribute("Combined", record.Combined);
+            //    //var car = new XElement("Car", name, combined);
 
 
-            var query2 =
-                cars.GroupBy(c => c.Manufacturer)
-                    .Select(g =>
-                    {
-                        var results = g.Aggregate(new CarStatistics(),
-                                            (acc, c) => acc.Accumulate(c),
-                                            acc => acc.Compute());
-                        return new
-                        {
-                            Name = g.Key,
-                            Avg = results.Average,
-                            Min = results.Min,
-                            Max = results.Max
-                        };
-                    })
-                    .OrderByDescending(r => r.Max);
+            //    //functional construction:
+            //    var car = new XElement("Car", 
+            //                            new XAttribute("Name", record.Name),
+            //                            new XAttribute("Combined", record.Combined),
+            //                            new XAttribute("Manufacturer", record.Manufacturer));
 
-            foreach (var result in query2)
-            {
-                Console.WriteLine($"{result.Name}");
-                Console.WriteLine($"\t Max: {result.Max}");
-                Console.WriteLine($"\t Min: {result.Min}");
-                Console.WriteLine($"\t Avg: {result.Avg}");
-            }
+            //    cars.Add(car);
+            //}
+            #endregion
+
+            document.Add(cars);
+            document.Save("fuel.xml");
         }
 
         private static List<Car> ProcessCars(string path)
