@@ -12,48 +12,40 @@ namespace Cars
     {
         static void Main(string[] args)
         {
-            CreateXml();
-            QueryXml();
+            InsertData();
+            QueryData();
         }
 
-        private static void QueryXml()
+        private static void QueryData()
         {
-            var ns = (XNamespace)"http://pluralsight.com/cars/2016";
-            var ex = (XNamespace)"http://pluralsight.com/cars/2016/ex";
-            var document = XDocument.Load("fuel.xml");
+            var db = new CarDb();
+            db.Database.Log = Console.WriteLine;
 
-            var query =
-                from element in document.Element(ns + "Cars")?.Elements(ex + "Car")
-                                                       ?? Enumerable.Empty<XElement>()
-                where element.Attribute("Manufacturer")?.Value == "BMW"
-                select element.Attribute("Name").Value;
+            //var query = from car in db.Cars
+            //            orderby car.Combined descending, car.Name ascending
+            //            select car;
 
-            foreach (var name in query)
+            var query = db.Cars.OrderByDescending(c => c.Combined).ThenBy(n => n.Name);
+            foreach (var car in query.Take(10))
             {
-                Console.WriteLine(name);
+                Console.WriteLine($"{car.Name}: {car.Combined}");
             }
         }
 
-        private static void CreateXml()
+        private static void InsertData()
         {
-            var records = ProcessCars("fuel.csv");
+            var cars = ProcessCars("fuel.csv");
+            var db = new CarDb();
+            db.Database.Log = Console.WriteLine;
 
-            var ns = (XNamespace)"http://pluralsight.com/cars/2016";
-            var ex = (XNamespace)"http://pluralsight.com/cars/2016/ex";
-            var document = new XDocument();
-            var cars = new XElement(ns + "Cars",
-
-                from record in records
-                select new XElement(ex + "Car",
-                                new XAttribute("Name", record.Name),
-                                new XAttribute("Combined", record.Combined),
-                                new XAttribute("Manufacturer", record.Manufacturer))
-            );
-
-            cars.Add(new XAttribute(XNamespace.Xmlns + "ex", ex));
-
-            document.Add(cars);
-            document.Save("fuel.xml");
+            if (!db.Cars.Any())
+            {
+                foreach (var car in cars)
+                {
+                    db.Cars.Add(car);
+                }
+                db.SaveChanges();
+            }
         }
 
         private static List<Car> ProcessCars(string path)
