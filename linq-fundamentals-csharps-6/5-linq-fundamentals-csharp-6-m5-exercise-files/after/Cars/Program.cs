@@ -13,7 +13,23 @@ namespace Cars
         static void Main(string[] args)
         {
             CreateXml();
+            QueryXml();
+        }
 
+        private static void QueryXml()
+        {
+            var document = XDocument.Load("fuel.xml");
+
+            var query = 
+                from element in document.Element("Cars").Elements("Car")
+                //from element in document.Descendants("Car")
+                where element.Attribute("Manufacturer")?.Value == "BMW"
+                select element.Attribute("Name").Value;
+
+            foreach (var name in query)
+            {
+                Console.WriteLine(name);
+            }
         }
 
         private static void CreateXml()
