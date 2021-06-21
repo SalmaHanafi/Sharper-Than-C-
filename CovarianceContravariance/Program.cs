@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CovarianceContravariance
 {
@@ -22,6 +24,34 @@ namespace CovarianceContravariance
     //used to show contravariance
     delegate void TakeAnimalDelegate(Animal a);
     delegate void TakeBirdDelegate(Bird b);
+
+
+    //generics
+    interface IProcess<out T>
+    {
+        T Process();
+    }
+
+    public class AnimalProcess<T> : IProcess<T>
+    {
+        public T Process()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    
+    interface IZoo<in T>
+    {
+        void Add(T t)
+    }
+
+    public class Zoo<T> : IZoo<T>
+    {
+        public void Add(T t)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
     class Program
     {
@@ -59,6 +89,24 @@ namespace CovarianceContravariance
              * assignment compatibility
              */
             TakeBirdDelegate t2 = Eat;
+
+
+            //generics
+            IProcess<Animal> animalProcess = new AnimalProcess<Animal>();
+            IProcess<Bird> birdProcess = new AnimalProcess<Bird>();
+
+            //covariance in generic types
+            animalProcess = birdProcess;
+
+            IEnumerable<Animal> animalList = new List<Bird>();
+
+            //contravariance in generic types
+
+            IZoo<Animal> animalZoo = new Zoo<Animal>();
+            IZoo<Bird> birdZoo = new Zoo<Bird>();
+            birdZoo = animalZoo;
+
+            IZoo<Bird> ContraBirdZoo = new Zoo<Animal>();
         }
     }
 }
